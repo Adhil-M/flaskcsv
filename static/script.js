@@ -2,6 +2,9 @@
 
 async function show(){
     console.log("got")
+    document.getElementById('show-btn').style="display:none;";
+    document.getElementById('update-btn').style="display:inline-block;";
+    document.getElementById('hide-btn').style="display:inline-block;";
     var data= await fetch('http://192.168.1.6:7000/showtable').then(res => res.json()).then(data=> { return data});
     var table=document.getElementById("table");
     var row = table.insertRow();
@@ -32,5 +35,11 @@ async function show(){
             cell5.innerHTML = i[4];
             cell6.innerHTML = i[5];
         }
-    }
+}
 
+function hide(){
+    document.getElementById('show-btn').style="display:block;";
+    document.getElementById('update-btn').style="display:none;";
+    document.getElementById('hide-btn').style="display:none;";
+    document.getElementById('table').innerHTML=" ";
+}
